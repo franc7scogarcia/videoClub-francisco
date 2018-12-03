@@ -6,15 +6,16 @@
 package View;
 
 
+import Clientes.ClientesDatos;
+import Controller.ControllerClientes; // Controlador - La vista lo único que ve es el controlador
 import java.util.Scanner;
-import UI.ClientesCrear;
+import java.util.List;
 
 /**
  *
  * @author matias
  */
-public class ViewPantallaCliente implements ILiterales  {
-    
+public class ViewPantallaCliente implements ILiterales  {   
     public static void MnuCliente(){
         
         int mnuOpcion = 0 ;
@@ -31,8 +32,7 @@ public class ViewPantallaCliente implements ILiterales  {
         Scanner sc1 = new Scanner(System.in);
         mnuOpcion = sc1.nextInt();
         
-        seleccionMenuCliente(mnuOpcion);
-                       
+        seleccionMenuCliente(mnuOpcion);                       
     }
 
     private static void seleccionMenuCliente(int mnuOpcion) {
@@ -40,27 +40,54 @@ public class ViewPantallaCliente implements ILiterales  {
         if (mnuOpcion == 1) {
             ViewNuevoCliente();
         } else if (mnuOpcion == 2) {
-            
+            eliminarCliente();
         } else if (mnuOpcion == 3) {
-            
+            editarCliente();
         } else if (mnuOpcion == 4) {
-            
+            MenuClienteBuscar();
         } else if (mnuOpcion == 5) {
-            
+            mostrarClientes();
         } else if (mnuOpcion == 9) {
             ViewPantallaPrincipal.MnuPrincipal();    
         } else {
-            System.out.println("La opción ingresada no es correcta ...");
-            System.out.println("Intentelo nuevamente");
+            System.out.println("La opción ingresada no es correcta ...");           
             MnuCliente();
         }
-        MnuCliente();
+    }    
+    //Opciones del menu buscar clientes
+    public static void MenuClienteBuscar() { 
+        int mnuOpcionBuscar = 0 ;
+        
+        System.out.println("1- Buscar por DNI");
+        System.out.println("2- Buscar por apellido");
+        System.out.println("3- Buscar por apellido y nombre");
+        System.out.println(mnuVolverMenuAnterior);
+        System.out.println("");
+        System.out.println(elegirOpcion);
+       
+        Scanner sc1= new Scanner(System.in);
+        mnuOpcionBuscar = sc1.nextInt();
+        seleccionMenuClienteBuscar(mnuOpcionBuscar);       
     }    
     
+    private static void seleccionMenuClienteBuscar(int mnuOpcionBuscar) {
+
+        if (mnuOpcionBuscar == 1) {
+            buscarClienteDNI();
+        } else if (mnuOpcionBuscar == 2) {
+            buscarClienteApellido();
+        } else if (mnuOpcionBuscar == 3) {
+            buscarClienteApellidoNombre();
+        } else if (mnuOpcionBuscar == 9) {
+            ViewPantallaCliente.MnuCliente();    
+        } else {
+            System.out.println("La opción ingresada no es correcta ....");           
+            MenuClienteBuscar();
+        }
+    }    
     private static void ViewNuevoCliente() {
-       ClientesCrear.crearCliente();
         // Declaraciíon de variables 
-       /* int DNI = 0;
+        int DNI = 0;
         String apellido = "";
         String nombre = "";
         
@@ -78,13 +105,63 @@ public class ViewPantallaCliente implements ILiterales  {
         
         System.out.println(confirmacion);
         char aux = sc1.next().toUpperCase().charAt(0);
-        
+             
         if ('S' == aux ){
-            System.out.println("Datos almacenados");
-        } else {
+            //System.out.println("Datos almacenados");
+            ControllerClientes control = new ControllerClientes();
+            
+            // Si negamos la consulta lo que sucede es que cuando vuelva con error se pida ingresar de nuevo todos los datos
+            if (!control.SaveClientes(DNI, apellido, nombre)){
+                ViewNuevoCliente();
+            };
+            MnuCliente();            
+   
+        }else {
             System.out.println("No se grabarán los datos");
-        }*/
- 
+        }      
     }
+    private static void eliminarCliente() { 
+       System.out.println("Eliminar Cliente: ");
+       //Llamada al metodo para buscar el cliente a eliminar
+       System.out.println(elegirOpcion);
+       MenuClienteBuscar(); 
+    }
+    private static void editarCliente() { 
+       System.out.println("Editar Cliente");
+       System.out.println(elegirOpcion);
+       //llamada al metodo para editar cliente
+       MenuClienteBuscar();
+    }
+    public static void mostrarClientes( ) { 
+       
+    }
+    public static void buscarClienteDNI(){
+        
+    }
+    public static void buscarClienteApellido(){
+        
+    }
+    public static void  buscarClienteApellidoNombre(){
+        
+    }
+
+   /* public static buscarCliente(ControllerClientes nuevoCliente) {
+        //buscar cliente dentro de la lista
+        //System.out.println("Desea buscar clientes:");
+        /*
+         DNI
+         APELLIDO Y/O NOMBR   */ 
+        
+        
+  
+   /* public int buscarCliente(ClientesDatos cliente , List<ClientesDatos> listaCliente, int Dni) {
+        for(int i=0;i<listaCliente.size();i++ ){
+            if(Dni == cliente.getDni()){
+                listaCliente.lastIndexOf(i);
+            }   
+        } 
+    return listaCliente.lastIndexOf(Dni);
+    }
+*/
 }
 

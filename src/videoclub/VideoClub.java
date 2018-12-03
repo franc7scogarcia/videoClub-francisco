@@ -4,20 +4,26 @@
  * and open the template in the editor.
  */
 package videoclub;
-import Clientes.ClientesDatos;
-import Persistencia.ClientesPersistencia;
-import java.lang.StringBuilder;
+
+/**
+ *
+ * @author matias
+ */
 import View.ViewPantallaPrincipal;
-import videoclub.Videoclub;
+import videoclub.VideoClub;
 
 
-public class Videoclub {
+
+public class VideoClub {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-          ViewPantallaPrincipal.MnuPrincipal();
+        // TODO code application logic here
+        
+        ViewPantallaPrincipal.MnuPrincipal();
+        
     }
+    
 }
-
