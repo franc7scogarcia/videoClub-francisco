@@ -39,8 +39,15 @@ public interface ILiterales {
     
     /**
      * Literales para ingreso de datos de clientes
+     * 
      */
     
+    /**
+     * literales busqueda de clientes
+     */
+    public static final String buscarOpcion1 = "1.- Buscar porDNI";
+    public static final String buscarOpcion2 = "2.- Buscar por Apeliido";
+    public static final String buscarOpcion3 = "3.- Buscar por Apellido y nombre";
     
     /**
      *  mensajes  que se repiten

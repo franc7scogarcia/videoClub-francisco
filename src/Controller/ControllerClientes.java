@@ -9,6 +9,7 @@ package Controller;
 import Model.ClientesCRUD;
 import Model.ClientesDatos;  
 import java.util.InputMismatchException;
+import java.util.List;
 
 /**
  *
@@ -31,7 +32,7 @@ public class ControllerClientes {
             ClientesDatos nuevoCliente = new ClientesDatos(DNI, apellido, nombre);       
             
             // llamar a otro método del modelo que nos guarde en una lista de clientes
-            ClientesCRUD listaDeClientes = new ClientesCRUD();
+            ClientesCRUD listaDeClientes = new ClientesCRUD();//con singleton
             isSaved = listaDeClientes.AddClientes(nuevoCliente);
             
         } catch (InputMismatchException e ){
@@ -41,6 +42,13 @@ public class ControllerClientes {
         
         return isSaved;
         
+    }
+
+    public List<Clientes.ClientesDatos> BuscarDatosClientes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        System.out.println("estoy mostrando datos");
+    
     }
     
 }

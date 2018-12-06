@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author MATIAS
  */
-public class ClientesCRUD {
+public class ClientesCRUD { //con singleton
     
     private List<ClientesDatos> almacenCliente; 
     

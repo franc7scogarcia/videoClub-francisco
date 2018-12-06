@@ -10,6 +10,7 @@ import Clientes.ClientesDatos;
 import Controller.ControllerClientes; // Controlador - La vista lo único que ve es el controlador
 import java.util.Scanner;
 import java.util.List;
+import Model.ClientesCRUD;
 
 /**
  *
@@ -36,9 +37,12 @@ public class ViewPantallaCliente implements ILiterales  {
     }
 
     private static void seleccionMenuCliente(int mnuOpcion) {
+        
+        //System.out.println("Datos almacenados");
+        ControllerClientes control = new ControllerClientes();
 
         if (mnuOpcion == 1) {
-            ViewNuevoCliente();
+            ViewNuevoCliente(control);
         } else if (mnuOpcion == 2) {
             eliminarCliente();
         } else if (mnuOpcion == 3) {
@@ -46,7 +50,7 @@ public class ViewPantallaCliente implements ILiterales  {
         } else if (mnuOpcion == 4) {
             MenuClienteBuscar();
         } else if (mnuOpcion == 5) {
-            mostrarClientes();
+            mostrarClientes(control);
         } else if (mnuOpcion == 9) {
             ViewPantallaPrincipal.MnuPrincipal();    
         } else {
@@ -58,9 +62,9 @@ public class ViewPantallaCliente implements ILiterales  {
     public static void MenuClienteBuscar() { 
         int mnuOpcionBuscar = 0 ;
         
-        System.out.println("1- Buscar por DNI");
-        System.out.println("2- Buscar por apellido");
-        System.out.println("3- Buscar por apellido y nombre");
+        System.out.println(buscarOpcion1);
+        System.out.println(buscarOpcion2);
+        System.out.println(buscarOpcion3);
         System.out.println(mnuVolverMenuAnterior);
         System.out.println("");
         System.out.println(elegirOpcion);
@@ -85,7 +89,8 @@ public class ViewPantallaCliente implements ILiterales  {
             MenuClienteBuscar();
         }
     }    
-    private static void ViewNuevoCliente() {
+    
+    private static void ViewNuevoCliente(ControllerClientes control) {
         // Declaraciíon de variables 
         int DNI = 0;
         String apellido = "";
@@ -106,20 +111,19 @@ public class ViewPantallaCliente implements ILiterales  {
         System.out.println(confirmacion);
         char aux = sc1.next().toUpperCase().charAt(0);
              
-        if ('S' == aux ){
-            //System.out.println("Datos almacenados");
-            ControllerClientes control = new ControllerClientes();
+        if ('S' == aux ){            
             
             // Si negamos la consulta lo que sucede es que cuando vuelva con error se pida ingresar de nuevo todos los datos
             if (!control.SaveClientes(DNI, apellido, nombre)){
-                ViewNuevoCliente();
-            };
-            MnuCliente();            
-   
+                ViewNuevoCliente(control);
+            }
         }else {
             System.out.println("No se grabarán los datos");
-        }      
+        }     
+        
+        MnuCliente();            
     }
+    
     private static void eliminarCliente() { 
        System.out.println("Eliminar Cliente: ");
        //Llamada al metodo para buscar el cliente a eliminar
@@ -132,8 +136,14 @@ public class ViewPantallaCliente implements ILiterales  {
        //llamada al metodo para editar cliente
        MenuClienteBuscar();
     }
-    public static void mostrarClientes( ) { 
-       
+    public static void mostrarClientes(ControllerClientes control) {           
+        List<ClientesDatos> almacenCliente = control.BuscarDatosClientes();
+        
+        int i=0;
+        for(i=0;i<=almacenCliente.size();i++){
+            System.out.println("" +almacenCliente.get(i));
+        }
+        
     }
     public static void buscarClienteDNI(){
         
