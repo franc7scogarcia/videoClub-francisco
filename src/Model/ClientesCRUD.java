@@ -25,6 +25,34 @@ public class ClientesCRUD { //con singleton
         return true;
     }
     
+    public List<ClientesDatos> SearchClient(){
+        return this.almacenCliente;
+    }
+    
+    public int SearchClient(int DNI){
+        int i=0;
+        int result = -1;
+        for(i=0;i<=this.almacenCliente.size();i++){
+            if (this.almacenCliente.get(i).getDNI() == DNI){               
+                result = this.almacenCliente.indexOf(this.almacenCliente.get(i));                
+            }           
+        }        
+        return result; 
+    }
+    
+    public List<ClientesDatos> SearchClient(String apellido){        
+        List<ClientesDatos> listaClientes = new ArrayList(); 
+        int i=0;        
+        
+        for(i=0;i<=this.almacenCliente.size();i++){            
+            ; 
+            
+            if (this.almacenCliente.get(i).getApellido() == apellido){                
+               listaClientes.add(this.almacenCliente.get(i));
+            }           
+        }        
+        return listaClientes; 
+    }
     
     
 }

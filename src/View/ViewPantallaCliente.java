@@ -37,7 +37,7 @@ public class ViewPantallaCliente implements ILiterales  {
     }
 
     private static void seleccionMenuCliente(int mnuOpcion) {
-        
+  
         //System.out.println("Datos almacenados");
         ControllerClientes control = new ControllerClientes();
 
