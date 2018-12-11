@@ -37,10 +37,10 @@ public class ViewPantallaCliente implements ILiterales  {
     }
 
     private static void seleccionMenuCliente(int mnuOpcion) {
-  
-        //System.out.println("Datos almacenados");
-        ControllerClientes control = new ControllerClientes();
-
+         ControllerClientes control = ControllerClientes.getInstance();
+        /**
+         * vista menu cliente
+         */
         if (mnuOpcion == 1) {
             ViewNuevoCliente(control);
         } else if (mnuOpcion == 2) {
@@ -136,7 +136,7 @@ public class ViewPantallaCliente implements ILiterales  {
        //llamada al metodo para editar cliente
        MenuClienteBuscar();
     }
-    public static void mostrarClientes(ControllerClientes control) {           
+/*    public static void mostrarClientes(ControllerClientes control) {           
         List<ClientesDatos> almacenCliente = control.BuscarDatosClientes();
         
         int i=0;
@@ -144,9 +144,13 @@ public class ViewPantallaCliente implements ILiterales  {
             System.out.println("" +almacenCliente.get(i));
         }
         
-    }
+    }*/
     public static void buscarClienteDNI(){
-        
+        int dni=0;
+        Scanner sc1 = new Scanner (System.in);
+        System.out.println("ingrese el numero de DNI: ");
+        dni= sc1.nextInt();
+      
     }
     public static void buscarClienteApellido(){
         

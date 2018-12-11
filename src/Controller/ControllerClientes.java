@@ -7,6 +7,7 @@ package Controller;
 
 // importamos los paquetes del modelo
 import Model.ClientesCRUD;
+
 import Model.ClientesDatos;  
 import java.util.InputMismatchException;
 import java.util.List;
@@ -16,11 +17,22 @@ import java.util.List;
  * @author 
  */
 public class ControllerClientes {
-    
+    private static ControllerClientes instance;
     //Crear constructor si es necesario instanciar el objeto
-    
-    public ControllerClientes(){
+   /**
+    * singleton
+    */ 
+    private ControllerClientes(){
         
+    }
+    public static ControllerClientes getInstance(){
+        if (instance == null){
+            instance = new ControllerClientes();
+        }
+        else{
+            System.out.println(" ya existe");
+        }
+    return instance;
     }
     
     public boolean SaveClientes(int DNI, String apellido, String nombre){
@@ -32,7 +44,7 @@ public class ControllerClientes {
             ClientesDatos nuevoCliente = new ClientesDatos(DNI, apellido, nombre);       
             
             // llamar a otro método del modelo que nos guarde en una lista de clientes
-            ClientesCRUD listaDeClientes = new ClientesCRUD();//con singleton
+            ClientesCRUD listaDeClientes = ClientesCRUD.getInstance();
             isSaved = listaDeClientes.AddClientes(nuevoCliente);
             
         } catch (InputMismatchException e ){
@@ -46,9 +58,9 @@ public class ControllerClientes {
 
     public List<Clientes.ClientesDatos> BuscarDatosClientes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+      
         System.out.println("estoy mostrando datos");
     
     }
-    
+   
 }

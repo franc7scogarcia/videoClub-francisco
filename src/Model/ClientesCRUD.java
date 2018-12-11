@@ -12,12 +12,24 @@ import java.util.List;
  *
  * @author MATIAS
  */
-public class ClientesCRUD { //con singleton
-    
+public class ClientesCRUD {
+    private static ClientesCRUD instance;
     private List<ClientesDatos> almacenCliente; 
-    
-    public ClientesCRUD(){
+    /**
+     * singleton de la lista 
+     */
+    private ClientesCRUD(){
         this.almacenCliente = new ArrayList();;
+    }
+    
+    public static ClientesCRUD getInstance(){
+        if (instance == null){
+            instance = new ClientesCRUD();
+        }else{
+            System.out.println("El objeto ya existe");
+            
+        }
+    return instance;
     }
     
     public boolean AddClientes(ClientesDatos nuevoCliente) {
