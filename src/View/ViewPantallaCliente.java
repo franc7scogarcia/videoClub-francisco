@@ -128,36 +128,44 @@ public class ViewPantallaCliente implements ILiterales  {
        System.out.println("Eliminar Cliente: ");
        //Llamada al metodo para buscar el cliente a eliminar
        System.out.println(elegirOpcion);
-       MenuClienteBuscar(); 
-    }
+       MenuClienteBuscar();
+       
+    }      
     private static void editarCliente() { 
        System.out.println("Editar Cliente");
        System.out.println(elegirOpcion);
        //llamada al metodo para editar cliente
        MenuClienteBuscar();
     }
-/*    public static void mostrarClientes(ControllerClientes control) {           
-        List<ClientesDatos> almacenCliente = control.BuscarDatosClientes();
+    public static void mostrarClientes(ControllerClientes control) {           
+     //   List<ClientesDatos> almacenCliente = control.BuscarDatosClientes();
         
-        int i=0;
-        for(i=0;i<=almacenCliente.size();i++){
-            System.out.println("" +almacenCliente.get(i));
-        }
+       // int i=0;
+       // for(i=0;i<=almacenCliente.size();i++){
+         //   System.out.println("" +almacenCliente.get(i));
+        //}
         
-    }*/
+    }
     public static void buscarClienteDNI(){
         int dni=0;
-        Scanner sc1 = new Scanner (System.in);
-        System.out.println("ingrese el numero de DNI: ");
+        int posicion; 
+        Scanner sc1= new Scanner(System.in);
         dni= sc1.nextInt();
-      
+        posicion = ControllerClientes.getInstance().BuscarDatosClientes(dni);
+        // mostrar los dstos del  cliente
+        //verificar si se elimina o no 
+        //Si se elimina llamar al método que elimina desde la pocisión
+        //si no se elimina volver al menú de cliente
     }
     public static void buscarClienteApellido(){
-        
+        String apellido="";
+        Scanner sc1 = new Scanner(System.in);
+        apellido= sc1.next();
+        ControllerClientes.getInstance().BuscarDatosClientes(apellido);
     }
-    public static void  buscarClienteApellidoNombre(){
+    //public static void  buscarClienteApellidoNombre(){
         
-    }
+    //}
 
    /* public static buscarCliente(ControllerClientes nuevoCliente) {
         //buscar cliente dentro de la lista

@@ -57,7 +57,6 @@ public class ClientesCRUD {
         int i=0;        
         
         for(i=0;i<=this.almacenCliente.size();i++){            
-            ; 
             
             if (this.almacenCliente.get(i).getApellido() == apellido){                
                listaClientes.add(this.almacenCliente.get(i));
