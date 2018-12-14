@@ -54,14 +54,12 @@ public class ControllerClientes {
     }
     
     public int BuscarDatosClientes(int dni) {
-        ClientesCRUD.getInstance().SearchClient(dni);
-        
-        return -1;
+       int position= ClientesCRUD.getInstance().SearchClient(dni); 
+       return position;
     }
        
     public List<Clientes.ClientesDatos> BuscarDatosClientes(String apellido) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    ClientesCRUD.getInstance().SearchClient(apellido);
+       ClientesCRUD.getInstance().SearchClient(apellido);
         return null;
     } 
     
