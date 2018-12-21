@@ -50,7 +50,7 @@ public class ViewPantallaCliente implements ILiterales  {
         } else if (mnuOpcion == 4) {
             MenuClienteBuscar();
         } else if (mnuOpcion == 5) {
-            mostrarClientes(control);
+            ViewMostrarClientes(control);
         } else if (mnuOpcion == 9) {
             ViewPantallaPrincipal.MnuPrincipal();    
         } else {
@@ -77,11 +77,9 @@ public class ViewPantallaCliente implements ILiterales  {
     private static void seleccionMenuClienteBuscar(int mnuOpcionBuscar) {
 
         if (mnuOpcionBuscar == 1) {
-            buscarClienteDNI();
+            ViewBuscarClienteDNI();
         } else if (mnuOpcionBuscar == 2) {
-            buscarClienteApellido();
-        } else if (mnuOpcionBuscar == 3) {
-            buscarClienteApellidoNombre();
+            ViewBuscarClienteApellido();
         } else if (mnuOpcionBuscar == 9) {
             ViewPantallaCliente.MnuCliente();    
         } else {
@@ -137,27 +135,33 @@ public class ViewPantallaCliente implements ILiterales  {
        //llamada al metodo para editar cliente
        MenuClienteBuscar();
     }
-    public static void mostrarClientes(ControllerClientes control) {           
-     //   List<ClientesDatos> almacenCliente = control.BuscarDatosClientes();
-        
-       // int i=0;
-       // for(i=0;i<=almacenCliente.size();i++){
-         //   System.out.println("" +almacenCliente.get(i));
-        //}
+    public static void ViewMostrarClientes(ControllerClientes control) {           
+       //mostrar lista de los elementos
+        int i;
+        for(i=0;i<=ControllerClientes.getInstance().mostrarLista().size()
+                ;i++){
+            System.out.println(ControllerClientes.getInstance().mostrarLista().get(i).getApellido());
+            System.out.println(ControllerClientes.getInstance().mostrarLista().get(i).getNombre());
+            System.out.println(ControllerClientes.getInstance().mostrarLista().get(i).getDNI());
+        }
         
     }
-    public static void buscarClienteDNI(){
+    public static void ViewBuscarClienteDNI(){
         int dni=0;
         int posicion; 
         Scanner sc1= new Scanner(System.in);
         dni= sc1.nextInt();
         posicion = ControllerClientes.getInstance().BuscarDatosClientes(dni);
-        // mostrar los dstos del  cliente
+        // mostrar los datos del  cliente
+        ClientesCRUD.getInstance().SearchClient().get(posicion).getDNI();
+        ClientesCRUD.getInstance().SearchClient().get(posicion).getApellido();
+        ClientesCRUD.getInstance().SearchClient().get(posicion).getNombre();
         //verificar si se elimina o no 
+        
         //Si se elimina llamar al método que elimina desde la pocisión
         //si no se elimina volver al menú de cliente
     }
-    public static void buscarClienteApellido(){
+    public static void ViewBuscarClienteApellido(){
         String apellido="";
         Scanner sc1 = new Scanner(System.in);
         apellido= sc1.next();

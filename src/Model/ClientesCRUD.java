@@ -26,7 +26,7 @@ public class ClientesCRUD {
         if (instance == null){
             instance = new ClientesCRUD();
         }else{
-            System.out.println("El objeto ya existe");
+         //   System.out.println("El objeto ya existe");
             
         }
     return instance;

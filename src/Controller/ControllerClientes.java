@@ -58,9 +58,12 @@ public class ControllerClientes {
        return position;
     }
        
-    public List<Clientes.ClientesDatos> BuscarDatosClientes(String apellido) {
+    public List<ClientesDatos> BuscarDatosClientes(String apellido) {
        ClientesCRUD.getInstance().SearchClient(apellido);
-        return null;
+        return  ClientesCRUD.getInstance().SearchClient(apellido) ;
     } 
-    
+    public List<ClientesDatos> mostrarLista(){
+        ClientesCRUD.getInstance().SearchClient();
+        return ClientesCRUD.getInstance().SearchClient();
+    }
 }
