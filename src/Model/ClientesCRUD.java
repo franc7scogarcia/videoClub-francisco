@@ -7,6 +7,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -42,7 +43,7 @@ public class ClientesCRUD {
     }
     
     public int SearchClient(int DNI){
-        int i=0;
+        int i;
         int result = -1;
         for(i=0;i<=this.almacenCliente.size();i++){
             if (this.almacenCliente.get(i).getDNI() == DNI){               
@@ -54,7 +55,7 @@ public class ClientesCRUD {
     
     public List<ClientesDatos> SearchClient(String apellido){        
         List<ClientesDatos> listaClientes = new ArrayList(); 
-        int i=0;        
+        int i;        
         
         for(i=0;i<=this.almacenCliente.size();i++){            
             
@@ -63,6 +64,12 @@ public class ClientesCRUD {
             }           
         }        
         return listaClientes; 
+    }
+    /*
+    Metodo para eliminar cliente
+    */
+    public void removeClient(int posicion){
+        this.almacenCliente.remove(posicion);
     }
     
     

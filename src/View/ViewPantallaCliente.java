@@ -64,7 +64,6 @@ public class ViewPantallaCliente implements ILiterales  {
         
         System.out.println(buscarOpcion1);
         System.out.println(buscarOpcion2);
-        System.out.println(buscarOpcion3);
         System.out.println(mnuVolverMenuAnterior);
         System.out.println("");
         System.out.println(elegirOpcion);
@@ -96,7 +95,6 @@ public class ViewPantallaCliente implements ILiterales  {
         
         Scanner sc1 = new Scanner(System.in);
          
-        
         System.out.println("DNI: ");
         DNI = sc1.nextInt();
         
@@ -147,47 +145,51 @@ public class ViewPantallaCliente implements ILiterales  {
         
     }
     public static void ViewBuscarClienteDNI(){
-        int dni=0;
+        
         int posicion; 
         Scanner sc1= new Scanner(System.in);
-        dni= sc1.nextInt();
+        System.out.println("Ingrese numero de DNI: ");
+        int dni= sc1.nextInt();
         posicion = ControllerClientes.getInstance().BuscarDatosClientes(dni);
         // mostrar los datos del  cliente
         ClientesCRUD.getInstance().SearchClient().get(posicion).getDNI();
         ClientesCRUD.getInstance().SearchClient().get(posicion).getApellido();
         ClientesCRUD.getInstance().SearchClient().get(posicion).getNombre();
-        //verificar si se elimina o no 
-        
+        //verificar si se elimina o no  
+        System.out.println("Que operacion desea realizar");
+        System.out.println("E.- Eliminar cliente");
+        System.out.println("M.- Editar cliente");
+        char op= sc1.next().toUpperCase().charAt(0);
         //Si se elimina llamar al método que elimina desde la pocisión
+        if(op=='E'){
+            ControllerClientes.getInstance().removeClientDatos(posicion);
+        }else if (op=='M'){
+            ViewReadClient(posicion);
+        }else{
+            System.out.println("La opcion ingresada no es correcta");
+            posicion=ControllerClientes.getInstance().BuscarDatosClientes(dni);
+        }
         //si no se elimina volver al menú de cliente
+        MnuCliente();
     }
     public static void ViewBuscarClienteApellido(){
-        String apellido="";
         Scanner sc1 = new Scanner(System.in);
-        apellido= sc1.next();
+        String apellido= sc1.next();
         ControllerClientes.getInstance().BuscarDatosClientes(apellido);
     }
-    //public static void  buscarClienteApellidoNombre(){
-        
-    //}
-
-   /* public static buscarCliente(ControllerClientes nuevoCliente) {
-        //buscar cliente dentro de la lista
-        //System.out.println("Desea buscar clientes:");
-        /*
-         DNI
-         APELLIDO Y/O NOMBR   */ 
-        
-        
-  
-   /* public int buscarCliente(ClientesDatos cliente , List<ClientesDatos> listaCliente, int Dni) {
-        for(int i=0;i<listaCliente.size();i++ ){
-            if(Dni == cliente.getDni()){
-                listaCliente.lastIndexOf(i);
-            }   
-        } 
-    return listaCliente.lastIndexOf(Dni);
+    /**
+     * metodo opciones editar cliente 
+     * @param posicion 
+     */
+    public static void ViewReadClient(int posicion){
+        System.out.println("Indicar el/os campos del cliente a modificar: ");
+        System.out.println(opcion1);
+        System.out.println(opcion2);
+        System.out.println(opcion3);
+        System.out.println(opcion4);
+        Scanner  sc1 = new Scanner (System.in);
+        int elopc = sc1.nextInt();
+        ControllerClientes.getInstance().readClient(elopc , posicion);
     }
-*/
 }
 

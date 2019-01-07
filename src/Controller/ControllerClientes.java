@@ -27,7 +27,7 @@ public class ControllerClientes {
             instance = new ControllerClientes();
         }
         else{
-            System.out.println(" ya existe");
+            //System.out.println(" ya existe");
         }
     return instance;
     }
@@ -57,7 +57,7 @@ public class ControllerClientes {
        int position= ClientesCRUD.getInstance().SearchClient(dni); 
        return position;
     }
-       
+      
     public List<ClientesDatos> BuscarDatosClientes(String apellido) {
        ClientesCRUD.getInstance().SearchClient(apellido);
         return  ClientesCRUD.getInstance().SearchClient(apellido) ;
@@ -66,4 +66,28 @@ public class ControllerClientes {
         ClientesCRUD.getInstance().SearchClient();
         return ClientesCRUD.getInstance().SearchClient();
     }
+    /*
+    revisar si esta bien el metodo
+    */
+    public List<ClientesDatos> removeClientDatos(int posicion){
+        ClientesCRUD.getInstance().removeClient(posicion);
+        return null;
+    }
+    /*
+    Metodo modificar datos del cliente 
+    */
+    public List<ClientesDatos> readClient(int posicion ,int elopc){
+        
+        if (elopc == '1'){
+             
+        }else if (elopc =='2'){
+            
+        }else if (elopc == '3'){
+        
+        }else if (elopc =='4'){
+        }else
+            System.out.println("la opcion ingresada no es valida");
+        return null;       
+    }
+
 }
