@@ -133,46 +133,45 @@ public class ViewPantallaCliente implements ILiterales  {
        //llamada al metodo para editar cliente
        MenuClienteBuscar();
     }
-    public static void ViewMostrarClientes(ControllerClientes control) {           
+    private static void ViewMostrarClientes(ControllerClientes control) {           
        //mostrar lista de los elementos
         int i;
-        for(i=0;i<=ControllerClientes.getInstance().mostrarLista().size()
-                ;i++){
+        for(i=0;i<=ControllerClientes.getInstance().mostrarLista().size();i++){
             System.out.println(ControllerClientes.getInstance().mostrarLista().get(i).getApellido());
             System.out.println(ControllerClientes.getInstance().mostrarLista().get(i).getNombre());
             System.out.println(ControllerClientes.getInstance().mostrarLista().get(i).getDNI());
         }
         
     }
-    public static void ViewBuscarClienteDNI(){
+    private static void ViewBuscarClienteDNI(){
         
         int posicion; 
         Scanner sc1= new Scanner(System.in);
         System.out.println("Ingrese numero de DNI: ");
-        int dni= sc1.nextInt();
-        posicion = ControllerClientes.getInstance().BuscarDatosClientes(dni);
+        int DNI= sc1.nextInt();
+        posicion = ControllerClientes.getInstance().BuscarDatosClientes(DNI);
         // mostrar los datos del  cliente
-        ClientesCRUD.getInstance().SearchClient().get(posicion).getDNI();
-        ClientesCRUD.getInstance().SearchClient().get(posicion).getApellido();
-        ClientesCRUD.getInstance().SearchClient().get(posicion).getNombre();
+        System.out.println("DNI: "+ClientesCRUD.getInstance().SearchClient().get(posicion).getDNI());
+        System.out.println("Apellido: "+ClientesCRUD.getInstance().SearchClient().get(posicion).getApellido());
+        System.out.println("Nombre: "+ClientesCRUD.getInstance().SearchClient().get(posicion).getNombre());
         //verificar si se elimina o no  
         System.out.println("Que operacion desea realizar");
-        System.out.println("E.- Eliminar cliente");
-        System.out.println("M.- Editar cliente");
-        char op= sc1.next().toUpperCase().charAt(0);
+        System.out.println("1.- Eliminar cliente");
+        System.out.println("2.- Editar cliente");
+        int op= sc1.nextInt();
         //Si se elimina llamar al método que elimina desde la pocisión
-        if(op=='E'){
+        if(op==1){
             ControllerClientes.getInstance().removeClientDatos(posicion);
-        }else if (op=='M'){
+        }else if (op== 2){
             ViewReadClient(posicion);
         }else{
             System.out.println("La opcion ingresada no es correcta");
-            posicion=ControllerClientes.getInstance().BuscarDatosClientes(dni);
+            posicion=ControllerClientes.getInstance().BuscarDatosClientes(DNI);
         }
         //si no se elimina volver al menú de cliente
         MnuCliente();
     }
-    public static void ViewBuscarClienteApellido(){
+    private static void ViewBuscarClienteApellido(){
         Scanner sc1 = new Scanner(System.in);
         String apellido= sc1.next();
         ControllerClientes.getInstance().BuscarDatosClientes(apellido);
@@ -181,7 +180,7 @@ public class ViewPantallaCliente implements ILiterales  {
      * metodo opciones editar cliente 
      * @param posicion 
      */
-    public static void ViewReadClient(int posicion){
+    private static void ViewReadClient(int posicion){
         System.out.println("Indicar el/os campos del cliente a modificar: ");
         System.out.println(opcion1);
         System.out.println(opcion2);
@@ -189,7 +188,17 @@ public class ViewPantallaCliente implements ILiterales  {
         System.out.println(opcion4);
         Scanner  sc1 = new Scanner (System.in);
         int elopc = sc1.nextInt();
-        ControllerClientes.getInstance().readClient(elopc , posicion);
+        
+        if (elopc == '1'){
+            ControllerClientes.getInstance().readClient(posicion);
+        }else if (elopc =='2'){
+            
+            }else if (elopc == '3'){
+        
+             }else if (elopc =='4'){
+               }else
+                System.out.println("la opcion ingresada no es valida");
     }
+    
 }
 

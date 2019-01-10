@@ -45,7 +45,7 @@ public class ClientesCRUD {
     public int SearchClient(int DNI){
         int i;
         int result = -1;
-        for(i=0;i<=this.almacenCliente.size();i++){
+        for(i=0;i<this.almacenCliente.size();i++){
             if (this.almacenCliente.get(i).getDNI() == DNI){               
                 result = this.almacenCliente.indexOf(this.almacenCliente.get(i));                
             }           
@@ -71,6 +71,7 @@ public class ClientesCRUD {
     public void removeClient(int posicion){
         this.almacenCliente.remove(posicion);
     }
+    
     
     
 }

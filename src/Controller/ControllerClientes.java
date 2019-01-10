@@ -53,8 +53,8 @@ public class ControllerClientes {
         
     }
     
-    public int BuscarDatosClientes(int dni) {
-       int position= ClientesCRUD.getInstance().SearchClient(dni); 
+    public int BuscarDatosClientes(int DNI) {
+       int position= ClientesCRUD.getInstance().SearchClient(DNI); 
        return position;
     }
       
@@ -76,17 +76,8 @@ public class ControllerClientes {
     /*
     Metodo modificar datos del cliente 
     */
-    public List<ClientesDatos> readClient(int posicion ,int elopc){
+    public List<ClientesDatos> readClient(int posicion){
         
-        if (elopc == '1'){
-             
-        }else if (elopc =='2'){
-            
-        }else if (elopc == '3'){
-        
-        }else if (elopc =='4'){
-        }else
-            System.out.println("la opcion ingresada no es valida");
         return null;       
     }
 
