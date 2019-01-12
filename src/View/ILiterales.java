@@ -49,14 +49,6 @@ public interface ILiterales {
     public static final String buscarOpcion2 = "2.- Buscar por Apeliido";
    
     /**
-     * literales opciones modificacion de clientes
-     */
-    public static final String opcion1= "1.- DNI";
-    public static final String opcion2= "2.- Apellido ";
-    public static final String opcion3= "3.- Nombre";
-    public static final String opcion4= "4.- Todos los datos";
-    
-    /**
      *  mensajes  que se repiten
     */
     public static final String elegirOpcion = "Por favor elegir una opción (nro.): ";

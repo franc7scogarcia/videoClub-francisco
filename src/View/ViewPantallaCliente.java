@@ -163,7 +163,7 @@ public class ViewPantallaCliente implements ILiterales  {
         if(op==1){
             ControllerClientes.getInstance().removeClientDatos(posicion);
         }else if (op== 2){
-            ViewReadClient(posicion);
+            ViewModifClient(posicion);
         }else{
             System.out.println("La opcion ingresada no es correcta");
             posicion=ControllerClientes.getInstance().BuscarDatosClientes(DNI);
@@ -180,25 +180,8 @@ public class ViewPantallaCliente implements ILiterales  {
      * metodo opciones editar cliente 
      * @param posicion 
      */
-    private static void ViewReadClient(int posicion){
-        System.out.println("Indicar el/os campos del cliente a modificar: ");
-        System.out.println(opcion1);
-        System.out.println(opcion2);
-        System.out.println(opcion3);
-        System.out.println(opcion4);
-        Scanner  sc1 = new Scanner (System.in);
-        int elopc = sc1.nextInt();
-        
-        if (elopc == '1'){
-            ControllerClientes.getInstance().readClient(posicion);
-        }else if (elopc =='2'){
-            
-            }else if (elopc == '3'){
-        
-             }else if (elopc =='4'){
-               }else
-                System.out.println("la opcion ingresada no es valida");
+    private static void ViewModifClient(int posicion){
     }
-    
+   
 }
 

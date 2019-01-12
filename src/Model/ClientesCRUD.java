@@ -72,13 +72,11 @@ public class ClientesCRUD {
         this.almacenCliente.remove(posicion);
     }
     //metodo para editar cliente en el dni (terminar)
-    public List<ClientesDatos> readClientDNI(int posicion){
-        int i;
-        for(i=0;i<=this.almacenCliente.size();i++){
+    public void modifClient(int posicion){
+     
           
-        }
+        }    
     
-    }
     
     
 }

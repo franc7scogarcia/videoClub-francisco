@@ -76,7 +76,7 @@ public class ControllerClientes {
     /*
     Metodo modificar datos del cliente 
     */
-    public List<ClientesDatos> readClient(int posicion){
+    public List<ClientesDatos> modifClient(int posicion){
         
         return null;       
     }
