@@ -6,7 +6,7 @@
 package View;
 
 
-import Clientes.ClientesDatos;
+//import Clientes.ClientesDatos;
 import Controller.ControllerClientes; // Controlador - La vista lo único que ve es el controlador
 import java.util.Scanner;
 import java.util.List;
