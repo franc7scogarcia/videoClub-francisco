@@ -31,7 +31,7 @@ public class ViewConfirmarAccion extends javax.swing.JDialog {
     /**
      * Creates new form ViewConfirmarAccion
      */
-    public ViewConfirmarAccion(java.awt.Frame parent, boolean modal) {
+    public ViewConfirmarAccion(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
@@ -67,6 +67,8 @@ public class ViewConfirmarAccion extends javax.swing.JDialog {
         cancelButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setAlwaysOnTop(true);
+        setLocation(new java.awt.Point(5000, 5000));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -178,7 +180,7 @@ public class ViewConfirmarAccion extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ViewConfirmarAccion dialog = new ViewConfirmarAccion(new javax.swing.JFrame(), true);
+                ViewConfirmarAccion dialog = new ViewConfirmarAccion(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -186,6 +188,8 @@ public class ViewConfirmarAccion extends javax.swing.JDialog {
                     }
                 });
                 dialog.setVisible(true);
+                
+             
             }
         });
     }

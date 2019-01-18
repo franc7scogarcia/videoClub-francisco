@@ -11,7 +11,11 @@ import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.KeyStroke;
+import Controller.ControllerClientes;
+import Model.ClientesCRUD;
+import Model.ClientesDatos;
 
 
 /**
@@ -32,7 +36,7 @@ public class ViewNuevoCliente extends javax.swing.JDialog {
     /**
      * Creates new form ViewNuevoCliente
      */
-    public ViewNuevoCliente(java.awt.Frame parent, boolean modal) {
+    public ViewNuevoCliente(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
@@ -75,7 +79,10 @@ public class ViewNuevoCliente extends javax.swing.JDialog {
         jTextField3 = new javax.swing.JTextField();
 
         setTitle("Alta de nuevo cliente");
+        setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(5000, 5000));
+        setLocationByPlatform(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
@@ -112,11 +119,11 @@ public class ViewNuevoCliente extends javax.swing.JDialog {
         jLabel3.setText("DNI");
 
         jTextField1.setToolTipText("Ingrese el nombre del cliente");
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextField1.setName("textFieldNombre"); // NOI18N
 
         jTextField2.setToolTipText("Ingrese el apellido del cliente");
-        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextField2.setName("textFieldApellido"); // NOI18N
 
         jTextField3.setToolTipText("Ingrese el dni del cliente");
@@ -134,14 +141,15 @@ public class ViewNuevoCliente extends javax.swing.JDialog {
                     .addComponent(jLabel3))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancelButton)))
+                        .addComponent(cancelButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -191,10 +199,14 @@ public class ViewNuevoCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_closeDialog
 
     private void okButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okButtonMouseClicked
-        // TODO add your handling code here:
+        // Accion del boton grabar para confirmar la accion a realizar
        // ViewConfirmarAccion();
+       JDialog confirm;               
+      confirm = new ViewConfirmarAccion (new javax.swing.JDialog(), true);
+      confirm.setVisible(true);
+   
     }//GEN-LAST:event_okButtonMouseClicked
-    
+   
     private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);
@@ -231,16 +243,18 @@ public class ViewNuevoCliente extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ViewNuevoCliente dialog = new ViewNuevoCliente(new javax.swing.JFrame(), true);
+                ViewNuevoCliente dialog = new ViewNuevoCliente(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
                 });
-                dialog.setVisible(true);
+                dialog.setVisible(true);                        
             }
+            
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
