@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JFormDesignerProjectSettings">
+    <node name="designer">
+      <entry key="_i18nJavaSettingsEnabled" value="true" />
+      <entry key="_propertiesViewSettingsEnabled" value="true" />
+      <entry key="_i18nSettingsEnabled" value="true" />
+      <node name="binding">
+        <entry key="_javaSettingsEnabled" value="true" />
+        <entry key="usebindinginitmethod" value="true" />
+      </node>
+      <node name="formlayout">
+        <entry key="_javaSettingsEnabled" value="true" />
+        <entry key="generatebuildercode" value="true" />
+        <entry key="_settingsEnabled" value="true" />
+      </node>
+      <node name="gridbaglayout">
+        <entry key="_javaSettingsEnabled" value="true" />
+        <entry key="_settingsEnabled" value="true" />
+      </node>
+      <node name="grouplayout">
+        <entry key="_settingsEnabled" value="true" />
+        <entry key="grouplayoutstyle" value="2" />
+      </node>
+      <node name="miglayout">
+        <entry key="_javaSettingsEnabled" value="true" />
+        <entry key="generateapiconstraints" value="true" />
+      </node>
+      <node name="nulllayout">
+        <entry key="_settingsEnabled" value="true" />
+      </node>
+      <node name="tablelayout">
+        <entry key="_settingsEnabled" value="true" />
+      </node>
+    </node>
+    <node name="javacodegenerator">
+      <entry key="usei18ninitmethod" value="true" />
+    </node>
+  </component>
+</project>
