@@ -52,7 +52,7 @@ public class ViewPantallaCliente implements ILiterales  {
         } else if (mnuOpcion == 5) {
             ViewMostrarClientes(control);
         } else if (mnuOpcion == 9) {
-            ViewPantallaPrincipal.MnuPrincipal();    
+          //  ViewPantallaPrincipal.MnuPrincipal();
         } else {
             System.out.println("La opción ingresada no es correcta ...");           
             MnuCliente();

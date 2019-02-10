@@ -5,25 +5,29 @@
  */
 package videoclub;
 
-/**
+ import View.ViewPantallaPrincipal;
+
+ import javax.swing.*;
+
+ /**
  *
  * @author matias
+ *
  */
 
- import javax.swing.JFrame;
 
 
  public class VideoClub {
 
-    /**
+     public VideoClub() {
+     }
+
+     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
-        //ViewPantallaPrincipal.MnuPrincipal();
-         JFrame pantalla = new ViewJFramePrincipal();
-         pantalla.setVisible(true);
+
+
     }
     
 }
