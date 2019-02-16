@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import Controller.ControllerClientes;
 
 public class ViewCrearCliente extends JFrame {
 
@@ -28,7 +29,7 @@ public class ViewCrearCliente extends JFrame {
         etiqApellido= new JLabel();
         textApellido=new JTextField();
         etiqDni=new JLabel();
-        textDni=new JTextField();
+        textDni=new JTextField("-5");
         btnAceptar= new JButton();
         btnCancelar=new JButton();
 
@@ -55,6 +56,11 @@ public class ViewCrearCliente extends JFrame {
         etiqDni.setSize(80,20);
         etiqDni.setLocation(40,80);
         textDni.setBounds(120,80,100,25);
+        String textoDNI= textDni.getText();
+        int DNI;
+        DNI = Integer.parseInt(textoDNI);
+        String apellido=textApellido.getText();
+        String nombre= textNombre.getText();
 
         btnAceptar.setSize(100, 30);
         btnAceptar.setText("Aceptar");
@@ -63,8 +69,19 @@ public class ViewCrearCliente extends JFrame {
         btnAceptar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                ViewConfirmacion confirmacion= new ViewConfirmacion();
-                confirmacion.setVisible(true);
+                ControllerClientes control= new ControllerClientes();
+                if (!control.SaveClientes(DNI, apellido, nombre)){
+                    JOptionPane.showMessageDialog(null,"Datos incorrectos Intentelo nuevamente");
+                    textApellido.setText("");
+                    textNombre.setText("");
+                    textDni.setText("");
+                    textNombre.requestFocusInWindow();
+                    return;
+                }
+                else {
+                    ViewConfirmacion conf = new ViewConfirmacion();
+                    conf.setVisible(true);
+                }
                 super.mouseClicked(e);
             }
         });
@@ -72,8 +89,5 @@ public class ViewCrearCliente extends JFrame {
         btnCancelar.setSize(100, 30);
         btnCancelar.setText("Cancelar");
         btnCancelar.setLocation(230,130);
-
-
-
     }
 }

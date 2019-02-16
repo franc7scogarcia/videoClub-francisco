@@ -5,10 +5,6 @@
  */
 package Model;
 
-/**
- *
- * @author MATIAS
- */
 public interface IDatosClientes {
     
     /**
@@ -21,7 +17,7 @@ public interface IDatosClientes {
 
     public String getApellido();
        
-    public int setDNI(int idSocio);
+    public int setDNI(int DNI);
 
     public String setNombre(String nombre);
     

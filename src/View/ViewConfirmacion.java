@@ -2,41 +2,50 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import View.ViewCrearCliente;
 
 public class ViewConfirmacion extends JFrame {
+
     private JLabel etiqconf;
     private JButton btnAceptarConf;
     private JButton btnCancelarConf;
+
     public ViewConfirmacion(){
-        setSize(400,250);
-        setLocationRelativeTo(null);
+        setSize(400,200);
+        setResizable(false);
+        setVisible(true);
         setTitle("Confirmacion");
+        setLayout(null);
+        setLocationRelativeTo(null);
 
         etiqconf =new JLabel();
         btnAceptarConf=new JButton();
         btnCancelarConf=new JButton();
+
         add(etiqconf);
         add(btnAceptarConf);
         add(btnCancelarConf);
 
-        etiqconf.setLocation(80,30);
-        etiqconf.setSize(250,30);
+        etiqconf.setLocation(100,30);
+        etiqconf.setSize(250,40);
         etiqconf.setText("Esta seguro que desea proseguir?...");
 
-        btnAceptarConf.setLocation(80,150);
-        btnAceptarConf.setSize(250,30);
+
+        btnAceptarConf.setLocation(100,100);
+        btnAceptarConf.setSize(100,30);
         btnAceptarConf.setText("Aceptar");
 
-        btnCancelarConf.setLocation(150,150);
-        btnCancelarConf.setSize(250,30);
+        btnCancelarConf.setLocation(200,100);
+        btnCancelarConf.setSize(100,30);
         btnCancelarConf.setText("Cancelar");
-        btnCancelarConf.addMouseListener(new MouseAdapter() {
+        btnCancelarConf.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-
-                super.mouseClicked(e);
+            public void actionPerformed(ActionEvent e) {
+               return;
             }
         });
 

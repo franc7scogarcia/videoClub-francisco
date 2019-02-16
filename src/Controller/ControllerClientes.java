@@ -4,22 +4,22 @@
  * and open the template in the editor.
  */
 package Controller;
-
 // importamos los paquetes del modelo
 import Model.ClientesCRUD;
-import Model.ClientesDatos;  
-import View.ViewPantallaCliente;
+import Model.ClientesDatos;
+
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
+
+import javax.swing.*;
 
 public class ControllerClientes {
     private static ControllerClientes instance;
     //Crear constructor si es necesario instanciar el objeto
    /**
     * singleton
-    */ 
-    private ControllerClientes(){
+    */
+   public ControllerClientes(){
         
     }
     public static ControllerClientes getInstance(){
@@ -38,7 +38,7 @@ public class ControllerClientes {
         
         try {           
             // llamar a un metodo del modelo que nos genere el objeto Cliente
-            ClientesDatos nuevoCliente = new ClientesDatos(DNI, apellido, nombre);       
+            ClientesDatos nuevoCliente = new ClientesDatos(DNI,apellido, nombre);
             
             // llamar a otro método del modelo que nos guarde en una lista de clientes
             ClientesCRUD listaDeClientes = ClientesCRUD.getInstance();

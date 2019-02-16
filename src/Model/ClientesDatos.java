@@ -1,6 +1,8 @@
 package Model;
 
 
+import javax.swing.*;
+
 public class ClientesDatos implements IDatosClientes{
     private int DNI;
     private String nombre;
@@ -11,13 +13,13 @@ public class ClientesDatos implements IDatosClientes{
     // aplicaremos polimorfismos y creamos dos constructores uno con parámetros y otro sin parámetros.
     // Su uso dependerá de la situación 
 
-    public ClientesDatos(int DNI, String nombre, String apellido) {
+    public ClientesDatos() {
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellido = apellido;
     }
    
-    public ClientesDatos() {
+    public ClientesDatos(int Dni , String Apellido,String nombre) {
         this.DNI = 0;
         this.nombre = "";
         this.apellido ="";

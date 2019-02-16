@@ -8,25 +8,18 @@ package videoclub;
  import View.ViewPantallaPrincipal;
 
  import javax.swing.*;
-
- /**
- *
- * @author matias
- *
- */
-
-
+ import java.awt.*;
 
  public class VideoClub {
 
      public VideoClub() {
      }
 
-     /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
+        ViewPantallaPrincipal frame = new ViewPantallaPrincipal();
+        frame.setBackground(Color.getColor("black gray"));
+        frame.setVisible(true);
 
     }
     

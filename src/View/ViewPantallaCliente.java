@@ -110,15 +110,15 @@ public class ViewPantallaCliente implements ILiterales  {
         if ('S' == aux ){            
             
             // Si negamos la consulta lo que sucede es que cuando vuelva con error se pida ingresar de nuevo todos los datos
-            if (!control.SaveClientes(DNI, apellido, nombre)){
+           // if (!control.SaveClientes(DNI, apellido, nombre)){
                 ViewNuevoCliente(control);
             }
-        }else {
+        //}else {
             System.out.println("No se grabarán los datos");
         }     
         
-        MnuCliente();            
-    }
+      //  MnuCliente();
+    //}
     
     private static void eliminarCliente() { 
        System.out.println("Eliminar Cliente: ");
