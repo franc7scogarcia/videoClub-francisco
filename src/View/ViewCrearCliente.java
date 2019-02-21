@@ -2,8 +2,8 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
+
 import Controller.ControllerClientes;
 
 public class ViewCrearCliente extends JFrame {
@@ -16,6 +16,7 @@ public class ViewCrearCliente extends JFrame {
     private JTextField textDni;
     private JButton btnAceptar;
     private JButton btnCancelar;
+    ControllerClientes control= new ControllerClientes();
 
     public ViewCrearCliente(){
         setTitle("Nuevo Cliente");
@@ -46,11 +47,29 @@ public class ViewCrearCliente extends JFrame {
         etiqNombre.setSize(80,20);
         etiqNombre.setLocation(40,20);
         textNombre.setBounds(120,20,250,25);
+        textNombre.addKeyListener(new KeyAdapter() {
+            //
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode()== KeyEvent.VK_ENTER){
+                    textApellido.requestFocusInWindow();
+                }
+                super.keyPressed(e);
+            }
+        });
 
         etiqApellido.setText("Apellido");
         etiqApellido.setSize(80,20);
         etiqApellido.setLocation(40,50);
         textApellido.setBounds(120,50,250,25);
+        textApellido.addKeyListener(new KeyAdapter() {
+            //
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode()== KeyEvent.VK_ENTER){
+                    textDni.requestFocusInWindow();
+                }
+                super.keyPressed(e);
+            }
+        });
 
         etiqDni.setText("DNI");
         etiqDni.setSize(80,20);
@@ -59,26 +78,22 @@ public class ViewCrearCliente extends JFrame {
         String textoDNI= textDni.getText();
         int DNI;
         DNI = Integer.parseInt(textoDNI);
-        String apellido=textApellido.getText();
-        String nombre= textNombre.getText();
+
 
         btnAceptar.setSize(100, 30);
         btnAceptar.setText("Aceptar");
         btnAceptar.setLocation(90,130);
 
         btnAceptar.addMouseListener(new MouseAdapter() {
-            @Override
             public void mouseClicked(MouseEvent e) {
-                ControllerClientes control= new ControllerClientes();
-                if (!control.SaveClientes(DNI, apellido, nombre)){
+                if (!control.SaveClientes(DNI, textApellido.getText(), textNombre.getText())) {
                     JOptionPane.showMessageDialog(null,"Datos incorrectos Intentelo nuevamente");
                     textApellido.setText("");
                     textNombre.setText("");
                     textDni.setText("");
                     textNombre.requestFocusInWindow();
                     return;
-                }
-                else {
+                } else {
                     ViewConfirmacion conf = new ViewConfirmacion();
                     conf.setVisible(true);
                 }
@@ -89,5 +104,12 @@ public class ViewCrearCliente extends JFrame {
         btnCancelar.setSize(100, 30);
         btnCancelar.setText("Cancelar");
         btnCancelar.setLocation(230,130);
+        //salir de la pantalla nuevo cliente
+        btnCancelar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                return;
+            }
+        });
     }
 }

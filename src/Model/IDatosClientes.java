@@ -6,11 +6,6 @@
 package Model;
 
 public interface IDatosClientes {
-    
-    /**
-     *
-     * @return
-     */
     public int getDNI();
 
     public String getNombre();
@@ -22,6 +17,4 @@ public interface IDatosClientes {
     public String setNombre(String nombre);
     
     public String Apellido(String apellido);
-    
-    
 }

@@ -5,6 +5,7 @@
  */
 package videoclub;
 
+ import Controller.ControllerClientes;
  import View.ViewPantallaPrincipal;
 
  import javax.swing.*;
@@ -16,9 +17,9 @@ package videoclub;
      }
 
     public static void main(String[] args) {
-
+         ControllerClientes controlCli =new ControllerClientes();
         ViewPantallaPrincipal frame = new ViewPantallaPrincipal();
-        frame.setBackground(Color.getColor("black gray"));
+      //  frame.setcontrol(controlCli);
         frame.setVisible(true);
 
     }

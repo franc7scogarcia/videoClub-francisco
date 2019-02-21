@@ -20,7 +20,6 @@ public class ControllerClientes {
     * singleton
     */
    public ControllerClientes(){
-        
     }
     public static ControllerClientes getInstance(){
         if (instance == null){
@@ -33,25 +32,25 @@ public class ControllerClientes {
     }
     
     public boolean SaveClientes(int DNI, String apellido, String nombre){
-              
+
         boolean isSaved;
         
         try {           
             // llamar a un metodo del modelo que nos genere el objeto Cliente
-            ClientesDatos nuevoCliente = new ClientesDatos(DNI,apellido, nombre);
-            
+            ClientesDatos nuevoCliente;
+            nuevoCliente = new ClientesDatos(DNI,apellido,nombre);
             // llamar a otro método del modelo que nos guarde en una lista de clientes
             ClientesCRUD listaDeClientes = ClientesCRUD.getInstance();
             isSaved = listaDeClientes.AddClientes(nuevoCliente);
             
-        } catch (InputMismatchException e ){
-            System.out.println("Hubo un error con los datos del dni del cliente");    
+        } catch (InputMismatchException e ) {
+            JOptionPane.showMessageDialog(null, "Error en la carga del dni");
+            System.out.println("Hubo un error con los datos del dni del cliente");
             isSaved = false;
         }
-        
         return isSaved;
-        
-    }
+   }
+
     
     public int BuscarDatosClientes(int DNI) {
        int position= ClientesCRUD.getInstance().SearchClient(DNI); 
@@ -73,12 +72,9 @@ public class ControllerClientes {
         ClientesCRUD.getInstance().removeClient(posicion);
         return null;
     }
-    /*
-    Metodo modificar datos del cliente 
-    */
+    //modificar cliente
     public List<ClientesDatos> modifClient(int posicion){
-        
+
         return null;       
     }
-
 }
